@@ -1,0 +1,13 @@
+# Ignore build and distribution directories
+dist/
+build/
+
+# Ignore temporary files and logs
+temp/
+tmp/
+logs/
+
+# Ignore test coverage reports
+coverage/
+
+src/lib/web3/pump/idl/pump.json
