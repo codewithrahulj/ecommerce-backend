@@ -9,6 +9,6 @@
       "#*": ["./src/*"]
     }
   },
-  "include": ["eslint.config.mjs", "src/**/*.ts", "prisma/prisma.config.ts"],
+  "include": ["eslint.config.mjs", "src/**/*.ts", "prisma/prisma.config.ts", "prisma.config.ts"],
   "exclude": ["node_modules/**", "dist"]
 }
