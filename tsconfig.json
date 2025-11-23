@@ -3,12 +3,12 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": "./",
     "noErrorTruncation": true,
     "paths": {
       "#*": ["./src/*"]
     }
   },
-  "include": ["eslint.config.mjs", "src/**/*.ts"],
+  "include": ["eslint.config.mjs", "src/**/*.ts", "prisma/prisma.config.ts"],
   "exclude": ["node_modules/**", "dist"]
 }
