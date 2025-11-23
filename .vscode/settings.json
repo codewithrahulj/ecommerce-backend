@@ -5,5 +5,5 @@
   "eslint.options": {
     "overrideConfigFile": "eslint.config.mjs"
   },
-  "prisma.pinToPrisma6": false
+  "prisma.pinToPrisma6": true
 }
