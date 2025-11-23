@@ -17,7 +17,9 @@ const server = new http.Server(app);
 const corsOptions: cors.CorsOptions = {
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   origin:
-    CONFIG.NODE_ENV === "development" ? ["http://localhost:3000", "http://localhost:3001"] : ["http://localhost:3000"],
+    CONFIG.NODE_ENV === "development"
+      ? ["http://localhost:3000", "http://localhost:3001"]
+      : ["https://ecommerce-frontend-six-gamma.vercel.app"],
 };
 
 app.set("trust proxy", true);

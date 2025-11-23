@@ -12,7 +12,7 @@
     "lint:fix": "eslint --fix .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "vercel-build": "npx prisma migrate deploy && npx prisma generate",
+    "vercel-build": "prisma generate",
     "postinstall": "prisma generate"
   },
   "author": "",
