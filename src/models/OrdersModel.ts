@@ -19,6 +19,12 @@ class OrdersModel extends BaseModel {
   _buildWhereCondition = (params: Prisma.OrdersWhereInput, _extendedWhereParams?: IOrdersExtendedSearch) => {
     const whereCondition: Prisma.OrdersWhereInput = { ...params };
 
+    if (_extendedWhereParams && _extendedWhereParams.searchText) {
+      whereCondition.orderDescription = {
+        contains: _extendedWhereParams.searchText,
+      };
+    }
+
     return whereCondition;
   };
 

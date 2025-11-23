@@ -8,7 +8,7 @@ import { ICreateOrders } from "#types/routes/orders.js";
 import { Prisma } from "../../generated/prisma";
 import { Orders } from "../../generated/prisma";
 
-export default class AuthServices {
+export default class OrderServices {
   private orderProductMapModel = new OrderProductMapModel();
   private ordersModel = new OrdersModel();
   private productsModel = new ProductsModel();
@@ -128,28 +128,37 @@ export default class AuthServices {
 
     return {
       orders,
-      totalRecords,
+      totalRecords: totalRecords._count,
     };
   };
 
   getOrderById = async (orderId: number) => {
-    const records = await this.ordersModel.getByParams({
-      id: orderId,
-      isDeleted: false,
-    });
+    const records = await this.ordersModel.getByParams(
+      {
+        id: orderId,
+        isDeleted: false,
+      },
+      {
+        orderProductMaps: true,
+      },
+    );
 
     if (!records) {
       throw new AppError("Order not found");
     }
 
+    const productIds = records.orderProductMaps.map((obj) => obj.productId);
+
     const order: {
       createdAt: string;
       orderDescription: string;
       orderId: number;
+      productIds: number[];
     } = {
       createdAt: records.createdAt.toISOString(),
       orderDescription: records.orderDescription,
       orderId: records.id,
+      productIds: productIds,
     };
 
     return {

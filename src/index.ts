@@ -1,6 +1,7 @@
 import { CONFIG } from "#config.js";
 import { errorHandler } from "#middlewares/errorHandler.js";
 import orderRoutes from "#routes/orderRoutes.js";
+import productRoutes from "#routes/productRoutes.js";
 import logger from "#utils/logger/logger.js";
 import compression from "compression";
 import cors from "cors";
@@ -44,6 +45,7 @@ app.get("/ping", (req: Request, res: Response) => {
 // Web Server Routes
 //
 app.use("/api", orderRoutes);
+app.use("/api/product", productRoutes);
 
 /**
  * Global Error handler
